@@ -1,0 +1,76 @@
+﻿<Window x:Class="JumpListMaker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="JumpList Maker" 
+        MinWidth="550" MinHeight="500" 
+        Background="DodgerBlue" Loaded="MainWindow_OnLoaded" d:DesignHeight="500">
+
+    <Window.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="MaxHeight" Value="50"></Setter>
+            <Setter Property="Margin" Value="15" />
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="#FFD8D8D8"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+
+        <Style TargetType="Label">
+
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="MaxWidth" Value="500"/>
+            <Setter Property="Padding" Value="0,5,0,2"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="MaxWidth" Value="500"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FFD8D8D8"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Height" Value="20"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label  Grid.Row="0" Content="JumpList Maker" FontFamily="Segoe UI Light" FontSize="48" Margin="20,20,20,50"/>
+        <TextBlock Grid.Row="1" Text="Item Path"/>
+        <Button Grid.Row="1" Content="Select item" Click="SelectTask" Margin="300,0,0,0" Height="30" Padding="0"/>
+        <TextBox Grid.Row="2" x:Name="AppPath" TextChanged="AppPath_TextChanged" />
+        <TextBlock Grid.Row="3" Text="Title"/>
+        <TextBox Grid.Row="4" x:Name="AppName" TextChanged="AppName_TextChanged"/>
+        <Button Grid.Row="6" Content="Add task to JumpList" Click="AddTask"/>
+        <Button Grid.Row="7" Content="Remove a task" Click="RemoveATask" Margin="15,15,320,15"/>
+        <Button Grid.Row="7" Content="Remove all tasks" Click="RemoveAllTask" Margin="320,15,15,15"/>
+        <Border  Grid.Row="9" Width="Auto" Background="White" MaxHeight="20">
+            <TextBlock x:Name="FooterTextBlock" Text="" FontSize="12" Foreground="DodgerBlue" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0"/>
+        </Border>
+    </Grid>
+
+</Window>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="JumpListMaker.RemoveTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="RemoveTask" GotFocus="RemoveTask_OnGotFocus" d:DesignWidth="315.854" d:DesignHeight="459.248"  >
+
+    <Window.Resources>
+        <DataTemplate x:Key="RemoveTask">
+            <StackPanel>
+                <TextBlock Text="{Binding Title}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0">
+            <ListView x:Name="TaskList"
+                  SelectionMode="Extended"
+                  Loaded="RemoveTaskListLoaded"
+                  ItemTemplate="{StaticResource RemoveTask}" SelectedIndex="0">
+            </ListView>
+        </ScrollViewer>
+
+        <Button Grid.Row="1" Height="Auto" Content="Remove Tasks" Background="Red" Foreground="White" FontFamily="Segoe UI Light" FontSize="16" x:Name="RemoveButton" Click="RemoveButton_OnClick"/>
+    </Grid>
+
+</Window>
